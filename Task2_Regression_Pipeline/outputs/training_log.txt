@@ -1,0 +1,45 @@
+2026-09-23 10:43:24,022 | INFO | Loading California Housing dataset...
+2026-09-23 10:43:24,040 | INFO | Dataset shape: (20640, 10)
+2026-09-23 10:43:24,040 | INFO | Columns: ['longitude', 'latitude', 'housing_median_age', 'total_rooms', 'total_bedrooms', 'population', 'households', 'median_income', 'median_house_value', 'ocean_proximity']
+2026-09-23 10:43:24,042 | INFO | Missing values per column:
+longitude               0
+latitude                0
+housing_median_age      0
+total_rooms             0
+total_bedrooms        207
+population              0
+households              0
+median_income           0
+median_house_value      0
+ocean_proximity         0
+2026-09-23 10:43:24,043 | INFO | Numeric features (8): ['longitude', 'latitude', 'housing_median_age', 'total_rooms', 'total_bedrooms', 'population', 'households', 'median_income']
+2026-09-23 10:43:24,045 | INFO | Categorical features: ['ocean_proximity'] -> classes: ['<1H OCEAN', 'INLAND', 'ISLAND', 'NEAR BAY', 'NEAR OCEAN']
+2026-09-23 10:43:24,048 | INFO | Train size: 16512 | Test size: 4128
+2026-09-23 10:43:24,048 | INFO | Running GridSearchCV over Ridge alpha values with 5-fold CV...
+2026-09-23 10:43:24,860 | INFO | Best alpha found via CV: 1.0
+2026-09-23 10:43:24,860 | INFO | Best CV RMSE: 68595.6174
+2026-09-23 10:43:24,880 | INFO | Evaluating models on the held-out test set...
+2026-09-23 10:43:24,886 | INFO | [Ridge (alpha=1.0)] R^2 = 0.6257 | RMSE = 70038.4123 | MAE = 50708.6689
+2026-09-23 10:43:24,893 | INFO | [LinearRegression (baseline)] R^2 = 0.6257 | RMSE = 70031.4879 | MAE = 50702.1689
+2026-09-23 10:43:24,896 | INFO | 
+            Model       R2         RMSE          MAE
+Ridge (alpha=1.0) 0.625660 70038.412263 50708.668937
+ LinearRegression 0.625734 70031.487899 50702.168910
+2026-09-23 10:43:25,474 | INFO | Saved diagnostic plots to diagnostics.png
+2026-09-23 10:43:25,477 | INFO | 
+Top feature coefficients (Ridge):
+                   feature   coefficient
+    ocean_proximity_ISLAND  97664.004944
+             median_income  75154.198514
+                  latitude -54374.253926
+    ocean_proximity_INLAND -53854.241394
+                 longitude -53777.517520
+                population -43393.371623
+            total_bedrooms  43036.580284
+  ocean_proximity_NEAR BAY -19156.945571
+                households  18368.340210
+ ocean_proximity_<1H OCEAN -14047.335044
+        housing_median_age  13894.671342
+               total_rooms -13058.159970
+ocean_proximity_NEAR OCEAN -10605.482937
+2026-09-23 10:43:25,477 | INFO | Task 2 pipeline complete. Outputs: training_log.txt, metrics_summary.csv, ridge_coefficients.csv, diagnostics.png
